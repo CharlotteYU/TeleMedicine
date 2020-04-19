@@ -15,7 +15,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.navigater.R;
-import com.example.navigater.ui.gallery.GalleryViewModel;
+
 
 public class MedicineFragment extends Fragment {
 

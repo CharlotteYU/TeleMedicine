@@ -16,23 +16,12 @@ import com.example.navigater.R;
 
 public class QuestionFragment extends Fragment {
 
-    private QuestionViewModel mViewModel;
+    private QuestionViewModel questionViewModel;
 
-    public static QuestionFragment newInstance() {
-        return new QuestionFragment();
-    }
-
-    @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
-                             @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_question, container, false);
-    }
-
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        mViewModel = ViewModelProviders.of(this).get(QuestionViewModel.class);
-        // TODO: Use the ViewModel
+    public View onCreateView(@NonNull LayoutInflater inflater,
+                             ViewGroup container, Bundle savedInstanceState) {
+        View root = inflater.inflate(R.layout.fragment_question, container, false);
+        return root;
     }
 
 }

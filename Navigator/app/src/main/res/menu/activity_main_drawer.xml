@@ -13,10 +13,6 @@
             android:icon="@drawable/ic_menu_diagnostic"
             android:title="@string/menu_diagnostic_program" />
         <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_record"
-            android:title="@string/menu_medical_record" />
-        <item
             android:id="@+id/nav_question"
             android:icon="@drawable/ic_menu_question"
             android:title="@string/menu_question" />
@@ -24,6 +20,11 @@
             android:id="@+id/nav_medicine"
             android:icon="@drawable/ic_menu_medicine"
             android:title="@string/menu_medicine" />
+        <item
+            android:id="@+id/nav_slideshow"
+            android:icon="@drawable/ic_menu_record"
+            android:title="@string/menu_medical_record" />
+
 
     </group>
 </menu>

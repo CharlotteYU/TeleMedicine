@@ -1,5 +1,6 @@
 package com.example.navigater.ui.medicine;
 
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import android.os.Bundle;
@@ -11,28 +12,19 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.navigater.R;
+import com.example.navigater.ui.gallery.GalleryViewModel;
 
 public class MedicineFragment extends Fragment {
 
-    private MedicineViewModel mViewModel;
+    private MedicineViewModel medicineViewModel;
 
-    public static MedicineFragment newInstance() {
-        return new MedicineFragment();
-    }
-
-    @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
-                             @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_medicine, container, false);
-    }
-
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        mViewModel = ViewModelProviders.of(this).get(MedicineViewModel.class);
-        // TODO: Use the ViewModel
+    public View onCreateView(@NonNull LayoutInflater inflater,
+                             ViewGroup container, Bundle savedInstanceState) {
+        View root = inflater.inflate(R.layout.fragment_medicine, container, false);
+        return root;
     }
 
 

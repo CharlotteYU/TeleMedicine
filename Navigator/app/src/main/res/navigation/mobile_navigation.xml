@@ -40,4 +40,17 @@
         android:name="com.example.navigater.ui.slideshow.SlideshowFragment"
         android:label="@string/menu_medical_record"
         tools:layout="@layout/fragment_slideshow" />
+
+    <fragment
+        android:id="@+id/nav_medicine"
+        android:name="com.example.navigater.ui.medicine.MedicineFragment"
+        android:label="Medicine"
+        tools:layout="@layout/fragment_medicine" />
+
+    <fragment
+        android:id="@+id/nav_question"
+        android:name="com.example.navigater.ui.question.QuestionFragment"
+        android:label="Question"
+        tools:layout="@layout/fragment_question" />
+
 </navigation>

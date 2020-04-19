@@ -1,1 +1,5 @@
-This project aims at developping an application which allows telemedicine.
+This project aims at developping an application which allows telemedicine and is developped with Ahdroid Studio (JAVA)
+Step 1 :
+  Develop the interface of the application. 
+  1. Navigator bar for pages ( Patient's profile, diagnostic program, doctor's questions, list of medicine and the record ）
+  

@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import com.example.navigater.DatabaseHelper;
@@ -86,6 +87,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
         myDb.AddMedicine("Antipyretics","Body temperature drop");
         myDb.AddMedicine("Stomach medicine","Relieve stomach pain");
 
+        //Toast.makeText(this,"Values saved",Toast.LENGTH_LONG).show();
     }
 
     @Override

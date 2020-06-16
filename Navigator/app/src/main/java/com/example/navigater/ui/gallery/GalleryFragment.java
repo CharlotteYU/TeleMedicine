@@ -46,9 +46,14 @@ public class GalleryFragment extends Fragment {
         if(view!= null){
             assert activity != null;
             ListView listView = (ListView) view.findViewById(R.id.list_view);
-            ArrayList<String> arrayList = new ArrayList<>();
-            arrayList.add("123");
-            arrayList.add("sdf");
+            ArrayList<String> arrayList = new ArrayList<String>();
+            ArrayList<String> list = activity.getMyDb().getProgram(1).getPro_content();
+            int max = activity.getMyDb().getProgram(1).getMax();
+            for(int i=0 ;i<max;i++){
+                String a = list.get(i);
+                arrayList.add(a);
+            }
+
             ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(activity,android.R.layout.simple_list_item_1,arrayList);
             listView.setAdapter(arrayAdapter);
         }

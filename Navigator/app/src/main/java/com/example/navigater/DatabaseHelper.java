@@ -25,20 +25,19 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        String sqlPatient = "CREATE TABLE Patient(patient_id INTEGER PRIMARY KEY AUTOINCREMENT, firstname VARCHAR NOT NULL, lastname VARCHAR NOT NULL, age INTEGER NOT NULL)";
-        /*String sqlGps = "CREATE TABLE GPS(gps_id INTEGER PRIMARY KEY AUTOINCREMENT, longitude DECIMAL NOT NULL, latitude DECIMAL NOT NULL)";
-        String sqlDoctor ="CREATE TABLE Doctor(doctor_id INTEGER PRIMARY KEY AUTOINCREMENT, doctor_name VARCHAR NOT NULL)";
-        String sqlQuestion = "CREATE TABLE Question(question_id INTEGER PRIMARY KEY AUTOINCREMENT, question VARCHAR NOT NULL,answer VARCHAR)";
-        String sqlMedicine = "CREATE TABLE Medicine(medicine_id INTEGER PRIMARY KEY AUTOINCREMENT, medicine_name VARCHAR NOT NULL, curative_effect VARCHAR NOT NULL)";
-        String sqlCaseReport = "CREATE TABLE CaseReport(report_id INTEGER PRIMARY KEY AUTOINCREMENT, disease_name VARCHAR NOT NULL, disease_symptom VARCHAR NOT NULL, advice_of_docotr VARCHAR NOT NULL)";
+        String sqlPatient = "CREATE TABLE Patient(patient_id INTEGER PRIMARY KEY , firstname VARCHAR NOT NULL, lastname VARCHAR NOT NULL, age INTEGER NOT NULL,FOREIGN KEY(doctor_id) REFERENCES Doctor(doctor_id))";
+        String sqlGps = "CREATE TABLE GPS(gps_id INTEGER PRIMARY KEY , longitude DECIMAL NOT NULL, latitude DECIMAL NOT NULL，FOREIGN KEY(patient_id) REFERENCES Patient(patent_id))";
+        String sqlDoctor = "CREATE TABLE Doctor(doctor_id INTEGER PRIMARY KEY , doctor_name VARCHAR NOT NULL)";
+        String sqlQuestion = "CREATE TABLE Question(question_id INTEGER PRIMARY KEY , question VARCHAR NOT NULL,answer VARCHAR, answered BOOLEAN DEFAULT FALSE,FOREIGN KEY(doctorques_id) REFERENCES Doctor(doctor_id) ,FOREIGN KEY(patientques_id) REFERENCES Patient(patent_id))";
+        String sqlMedicine = "CREATE TABLE Medicine(medicine_id INTEGER PRIMARY KEY , medicine_name VARCHAR NOT NULL, curative_effect VARCHAR NOT NULL, FOREIGN KEY(patientm_id) REFERENCES Patient(patent_id))";
+        //String sqlCaseReport = "CREATE TABLE CaseReport(report_id INTEGER PRIMARY KEY AUTOINCREMENT, disease_name VARCHAR NOT NULL, disease_symptom VARCHAR NOT NULL, advice_of_docotr VARCHAR NOT NULL)";
 
-        String sqlAsk = "CREATE TABLE Ask(id INTEGER PRIMARY KEY AUTOINCREMENT, date DATE NOT NULL, FOREIGN KEY (question_id) REFERENCES Question(question_id)," +
+/*        String sqlAsk = "CREATE TABLE Ask(id INTEGER PRIMARY KEY AUTOINCREMENT, date DATE NOT NULL, FOREIGN KEY (question_id) REFERENCES Question(question_id)," +
                 " FOREIGN KEY (doctor_id) REFERENCES Doctor(doctor_id) )";
-        String sqlConsult  = "CREATE TABLE Consult(id INTEGER PRIMARY KEY AUTOINCREMENT, FOREIGN KEY (patient_id) REFERENCES Patient(patient_id)," +
+        String sqlConsult = "CREATE TABLE Consult(id INTEGER PRIMARY KEY AUTOINCREMENT, FOREIGN KEY (patient_id) REFERENCES Patient(patient_id)," +
                 " FOREIGN KEY (question_id) REFERENCES Question(question_id))";
         String sqlTake = "CREATE TABLE Take(id INTEGER PRIMARY KEY AUTOINCREMENT, FOREIGN KEY (patient_id) REFERENCES Patient(patient_id)," +
-                " FOREIGN KEY (medicine_id) REFERENCES Medicine(medicine_id))";
-*/
+                " FOREIGN KEY (medicine_id) REFERENCES Medicine(medicine_id))";*/
         sqLiteDatabase.execSQL(sqlPatient);
         /*
         sqLiteDatabase.execSQL(sqlGps);
@@ -54,13 +53,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     //add new patient
-    public boolean AddPatient(String firstname,String lastname, int age){
+    public boolean AddPatient(String firstname, String lastname, int age) {
         SQLiteDatabase db = getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put("firstname",firstname);
-        contentValues.put("lastname",lastname);
-        contentValues.put("age",age);
-        db.insert("Patient",null,contentValues);
+        contentValues.put("firstname", firstname);
+        contentValues.put("lastname", lastname);
+        contentValues.put("age", age);
+        db.insert("Patient", null, contentValues);
         db.close();
         return true;
     }
@@ -125,7 +124,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int oldVersion, int newVersion) {
-        String sqlPatient= "DROP TABLE IF EXISTS Patient";
+        String sqlPatient = "DROP TABLE IF EXISTS Patient";
 
 /*        String sqlGps = "DROP TABLE IF EXISTS GPS";
         String sqlDoctor = "DROP TABLE IF EXISTS Doctor";
@@ -144,7 +143,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     //get a Patient
-    public Patient getPatient(long patient_id){
+    public Patient getPatient(long patient_id) {
         SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
         String selectQuery = "SELECT * FROM Patient WHERE patient_id = " + patient_id;
 
@@ -157,7 +156,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         patient.setAge(c.getInt(c.getColumnIndex("age")));
         return patient;
     }
-
 
 
 }

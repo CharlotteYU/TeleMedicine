@@ -10,6 +10,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import androidx.annotation.Nullable;
 
 import com.example.navigater.model.Patient;
+import com.example.navigater.model.Program;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 

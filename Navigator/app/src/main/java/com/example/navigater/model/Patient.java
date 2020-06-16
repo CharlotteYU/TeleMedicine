@@ -1,18 +1,28 @@
 package com.example.navigater.model;
 
 
-
 public class Patient {
     int id;
     String firstname;
     String lastname;
     int age;
 
-    public Patient(int id, String firstname, String lastname, int age) {
+    public String getSymptom() {
+        return symptom;
+    }
+
+    public void setSymptom(String symptom) {
+        this.symptom = symptom;
+    }
+
+    String symptom;
+
+    public Patient(int id, String firstname, String lastname, int age, String symptom) {
         this.id = id;
         this.firstname = firstname;
         this.lastname = lastname;
         this.age = age;
+        this.symptom = symptom;
     }
 
     public Patient() {

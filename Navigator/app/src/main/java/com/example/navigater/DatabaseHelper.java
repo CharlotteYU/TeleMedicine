@@ -25,11 +25,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        String sqlPatient = "CREATE TABLE Patient(patient_id INTEGER PRIMARY KEY , firstname VARCHAR NOT NULL, lastname VARCHAR NOT NULL, age INTEGER NOT NULL,FOREIGN KEY(doctor_id) REFERENCES Doctor(doctor_id))";
-        String sqlGps = "CREATE TABLE GPS(gps_id INTEGER PRIMARY KEY , longitude DECIMAL NOT NULL, latitude DECIMAL NOT NULL，FOREIGN KEY(patient_id) REFERENCES Patient(patent_id))";
+        String sqlPatient = "CREATE TABLE Patient(patient_id INTEGER PRIMARY KEY , firstname VARCHAR NOT NULL, lastname VARCHAR NOT NULL, age INTEGER NOT NULL, symptom VARCHAR )";
+/*        String sqlGps = "CREATE TABLE GPS(gps_id INTEGER PRIMARY KEY , longitude DECIMAL NOT NULL, latitude DECIMAL NOT NULL，FOREIGN KEY(patient_id) REFERENCES Patient(patent_id))";
         String sqlDoctor = "CREATE TABLE Doctor(doctor_id INTEGER PRIMARY KEY , doctor_name VARCHAR NOT NULL)";
         String sqlQuestion = "CREATE TABLE Question(question_id INTEGER PRIMARY KEY , question VARCHAR NOT NULL,answer VARCHAR, answered BOOLEAN DEFAULT FALSE,FOREIGN KEY(doctorques_id) REFERENCES Doctor(doctor_id) ,FOREIGN KEY(patientques_id) REFERENCES Patient(patent_id))";
-        String sqlMedicine = "CREATE TABLE Medicine(medicine_id INTEGER PRIMARY KEY , medicine_name VARCHAR NOT NULL, curative_effect VARCHAR NOT NULL, FOREIGN KEY(patientm_id) REFERENCES Patient(patent_id))";
+        String sqlMedicine = "CREATE TABLE Medicine(medicine_id INTEGER PRIMARY KEY , medicine_name VARCHAR NOT NULL, curative_effect VARCHAR NOT NULL, FOREIGN KEY(patientm_id) REFERENCES Patient(patent_id))";*/
         //String sqlCaseReport = "CREATE TABLE CaseReport(report_id INTEGER PRIMARY KEY AUTOINCREMENT, disease_name VARCHAR NOT NULL, disease_symptom VARCHAR NOT NULL, advice_of_docotr VARCHAR NOT NULL)";
 
 /*        String sqlAsk = "CREATE TABLE Ask(id INTEGER PRIMARY KEY AUTOINCREMENT, date DATE NOT NULL, FOREIGN KEY (question_id) REFERENCES Question(question_id)," +
@@ -53,12 +53,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     //add new patient
-    public boolean AddPatient(String firstname, String lastname, int age) {
+    public boolean AddPatient(String firstname, String lastname, int age, String symptom) {
         SQLiteDatabase db = getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put("firstname", firstname);
         contentValues.put("lastname", lastname);
         contentValues.put("age", age);
+        contentValues.put("symptom", symptom);
         db.insert("Patient", null, contentValues);
         db.close();
         return true;
@@ -154,6 +155,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Patient patient = new Patient();
         patient.setFirstname(c.getString(c.getColumnIndex("firstname")));
         patient.setAge(c.getInt(c.getColumnIndex("age")));
+        patient.setSymptom(c.getString(c.getColumnIndex("symptom")));
         return patient;
     }
 

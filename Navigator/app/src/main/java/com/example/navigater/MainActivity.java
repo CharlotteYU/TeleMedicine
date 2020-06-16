@@ -48,9 +48,9 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
 
         //Create database and insert new values
         myDb = new DatabaseHelper(this);
-        myDb.AddPatient("David","Black",56);
-        myDb.AddPatient("Peter","White",66);
-        myDb.AddPatient("Andy","Smith",88);
+        myDb.AddPatient("David","Black",56,"cold");
+        myDb.AddPatient("Peter","White",66,"Cornavirus");
+        myDb.AddPatient("Andy","Smith",88, "Cornavirus");
 /*
         myDb.AddDoctor("Tom");
         myDb.AddDoctor("Louis");

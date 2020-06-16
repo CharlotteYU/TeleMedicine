@@ -2,11 +2,8 @@ package com.example.navigater.ui.home;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.database.sqlite.SQLiteDatabase;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -26,15 +23,9 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
-import com.example.navigater.DatabaseHelper;
-import com.example.navigater.MainActivity;
 import com.example.navigater.R;
 
-import org.w3c.dom.Text;
-
 import java.util.Objects;
-
-import javax.xml.xpath.XPathException;
 
 public class HomeFragment extends Fragment {
 
@@ -48,9 +39,8 @@ public class HomeFragment extends Fragment {
                 ViewModelProviders.of(this).get(HomeViewModel.class);
         View root = inflater.inflate(R.layout.fragment_home, container, false);
 
-        return root;
-    }
 
+<<<<<<< HEAD
     @SuppressLint("SetTextI18n")
     @Override
     public void onStart() {
@@ -67,7 +57,9 @@ public class HomeFragment extends Fragment {
             name.setText(str);
             age.setText(age_1);
         }
+=======
+        return root;
+>>>>>>> Revert "Databse miao"
     }
-
 
 }

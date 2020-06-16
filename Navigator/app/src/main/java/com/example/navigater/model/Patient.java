@@ -6,23 +6,13 @@ public class Patient {
     int id;
     String firstname;
     String lastname;
-    String symptom;
     int age;
 
-    public Patient(int id, String firstname, String lastname, int age, String symptom) {
+    public Patient(int id, String firstname, String lastname, int age) {
         this.id = id;
         this.firstname = firstname;
         this.lastname = lastname;
         this.age = age;
-        this.symptom = symptom;
-    }
-
-    public String getSymptom() {
-        return symptom;
-    }
-
-    public void setSymptom(String symptom) {
-        this.symptom = symptom;
     }
 
     public Patient() {

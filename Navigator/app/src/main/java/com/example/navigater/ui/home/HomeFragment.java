@@ -61,10 +61,11 @@ public class HomeFragment extends Fragment {
             assert activity != null;
             String str = activity.getMyDb().getPatient(1).getFirstname();
             int a = activity.getMyDb().getPatient(1).getAge();
+            String age_1 = Integer.toString(a);
             TextView name = view.findViewById(R.id.patient_name);
             TextView age = view.findViewById(R.id.patient_age);
             name.setText(str);
-            age.setText(a);
+            age.setText(age_1);
         }
     }
 

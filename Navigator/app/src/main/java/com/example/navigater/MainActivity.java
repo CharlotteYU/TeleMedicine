@@ -51,6 +51,11 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
         myDb.AddPatient("David","Black",56,"cold");
         myDb.AddPatient("Peter","White",66,"Cornavirus");
         myDb.AddPatient("Andy","Smith",88, "Cornavirus");
+
+        //add dignotic program
+        myDb.AddProgram(3,1," Measure body temporature ", 1);
+        myDb.AddProgram(3,2," Measure blood pressure ", 1);
+        myDb.AddProgram(3,3," Measure heartbeat ", 1);
 /*
         myDb.AddDoctor("Tom");
         myDb.AddDoctor("Louis");

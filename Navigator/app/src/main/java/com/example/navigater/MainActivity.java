@@ -32,6 +32,11 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
     private AppBarConfiguration mAppBarConfiguration;
     private TextView textView;
     private LocationManager locationManager;
+
+    public DatabaseHelper getMyDb() {
+        return myDb;
+    }
+
     private DatabaseHelper myDb;
 
 
@@ -39,6 +44,27 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        //Create database and insert new values
+        myDb = new DatabaseHelper(this);
+        myDb.AddPatient("David","Black",56);
+        myDb.AddPatient("Peter","White",66);
+        myDb.AddPatient("Andy","Smith",88);
+/*
+        myDb.AddDoctor("Tom");
+        myDb.AddDoctor("Louis");
+        myDb.AddGPS(56.23,13.4);
+        myDb.AddGPS(53.43,14.84);
+        myDb.AddGPS(55.3,12.94);
+        myDb.AddQuestion("What is your temperature?","36.6");
+        myDb.AddQuestion("Do you have stomach?", "No");
+        myDb.AddCaseReport("fever","temperature is higher than 38","Take antipyretics");
+        myDb.AddCaseReport("fracture", "Bone fracture" ,"Plaster");
+        myDb.AddMedicine("Antipyretics","Body temperature drop");
+        myDb.AddMedicine("Stomach medicine","Relieve stomach pain");
+*/
+
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -70,22 +96,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
         Location location = locationManager.getLastKnownLocation(locationManager.NETWORK_PROVIDER);
         onLocationChanged(location);
 
-        //Create database and insert new values
-        myDb = new DatabaseHelper(this);
-        myDb.AddPatient("David","Black",56);
-        myDb.AddPatient("Peter","White",66);
-        myDb.AddPatient("Andy","Smith",88);
-        myDb.AddDoctor("Tom");
-        myDb.AddDoctor("Louis");
-        myDb.AddGPS(56.23,13.4);
-        myDb.AddGPS(53.43,14.84);
-        myDb.AddGPS(55.3,12.94);
-        myDb.AddQuestion("What is your temperature?","36.6");
-        myDb.AddQuestion("Do you have stomach?", "No");
-        myDb.AddCaseReport("fever","temperature is higher than 38","Take antipyretics");
-        myDb.AddCaseReport("fracture", "Bone fracture" ,"Plaster");
-        myDb.AddMedicine("Antipyretics","Body temperature drop");
-        myDb.AddMedicine("Stomach medicine","Relieve stomach pain");
+
 
         //Toast.makeText(this,"Values saved",Toast.LENGTH_LONG).show();
     }

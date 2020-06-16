@@ -18,13 +18,14 @@
 
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/text_question_1"
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:errorEnabled="true"
             app:counterEnabled="true"
             app:counterMaxLength="100">
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/text_question_1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Answer："
@@ -38,20 +39,47 @@
 
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/text_question_2"
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:errorEnabled="true"
             app:counterEnabled="true"
             app:counterMaxLength="100">
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/text_question_2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Answer："
                 android:inputType="text" />
         </com.google.android.material.textfield.TextInputLayout>
 
+
+        ///
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="What is your age?"/>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:errorEnabled="true"
+            app:counterEnabled="true"
+            app:counterMaxLength="100">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/text_question_3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Answer："
+                android:inputType="text" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+
         <Button
+            android:id="@+id/button_submit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Submit"></Button>

@@ -3,7 +3,7 @@ package com.example.navigater.model;
 public class CaseReport {
     int id;
     String name;
-    String syptome;
+    String syptom;
     String advice;
 
     public int getId() {
@@ -22,12 +22,12 @@ public class CaseReport {
         this.name = name;
     }
 
-    public String getSyptome() {
-        return syptome;
+    public String getSyptom() {
+        return syptom;
     }
 
-    public void setSyptome(String syptome) {
-        this.syptome = syptome;
+    public void setSyptom(String syptom) {
+        this.syptom = syptom;
     }
 
     public String getAdvice() {

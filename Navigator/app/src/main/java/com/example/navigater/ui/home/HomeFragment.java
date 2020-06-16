@@ -65,7 +65,7 @@ public class HomeFragment extends Fragment {
             TextView name = view.findViewById(R.id.patient_name);
             TextView age = view.findViewById(R.id.patient_age);
             name.setText(str);
-            age.setText(a);
+            age.setText(age_1);
         }
     }
 

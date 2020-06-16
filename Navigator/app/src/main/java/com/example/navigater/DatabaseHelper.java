@@ -127,7 +127,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int oldVersion, int newVersion) {
         String sqlPatient= "DROP TABLE IF EXISTS Patient";
 
-/*        String sqlGps = "DROP TABLE IF EXISTS GPS";
+/*      String sqlGps = "DROP TABLE IF EXISTS GPS";
         String sqlDoctor = "DROP TABLE IF EXISTS Doctor";
         String sqlQuestion = "DROP TABLE IF EXISTS Question";
         String sqlMedicine = "DROP TABLE IF EXISTS Medicine";

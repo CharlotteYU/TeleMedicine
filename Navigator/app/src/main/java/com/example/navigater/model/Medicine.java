@@ -1,31 +1,34 @@
 package com.example.navigater.model;
 
+import java.util.ArrayList;
+
 public class Medicine {
-    int id;
-    String name;
-    String curative;
 
-    public int getId() {
-        return id;
+    int nb;
+    ArrayList<String> medicine;
+
+    public Medicine(int nb, ArrayList<String> medicine) {
+        this.nb = nb;
+        this.medicine = medicine;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public Medicine() {
+        this.medicine = new ArrayList<>();
     }
 
-    public String getName() {
-        return name;
+    public ArrayList<String> getMedicine() {
+        return medicine;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setMedicine(String content) {
+        medicine.add(content);
     }
 
-    public String getCurative() {
-        return curative;
+    public int getNb() {
+        return nb;
     }
 
-    public void setCurative(String curative) {
-        this.curative = curative;
+    public void setNb(int nb) {
+        this.nb = nb;
     }
 }
